@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="930" viewBox="0 0 1500 930">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="750.0" y="56" font-family="Arial, Helvetica, sans-serif" font-size="31" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="750.0" dy="0">Соответствие пользовательских потребностей</tspan><tspan x="750.0" dy="37.82">функциональным возможностям FinPulse</tspan></text>
+<rect x="90" y="112" width="500" height="48" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="910" y="112" width="500" height="48" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+<text x="340.0" y="143" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#1e3a8a" font-weight="700" text-anchor="middle">Потребность пользователя</text>
+<text x="1160.0" y="143" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#065f46" font-weight="700" text-anchor="middle">Решение в FinPulse</text>
+<rect x="90" y="155" width="500" height="82" rx="13" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+<text x="340.0" y="186" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="340.0" dy="0">Быстро понять</tspan><tspan x="340.0" dy="24.4">главные события рынка</tspan></text>
+<rect x="910" y="155" width="500" height="82" rx="13" fill="#f8fafc" stroke="#86efac" stroke-width="2"/>
+<text x="1160.0" y="186" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1160.0" dy="0">AI-лента новостей</tspan><tspan x="1160.0" dy="24.4">и краткие карточки</tspan></text>
+<line x1="614" y1="196.0" x2="886" y2="196.0" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="90" y="263" width="500" height="82" rx="13" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+<text x="340.0" y="294" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="340.0" dy="0">Отделить важные новости</tspan><tspan x="340.0" dy="24.4">от информационного шума</tspan></text>
+<rect x="910" y="263" width="500" height="82" rx="13" fill="#f8fafc" stroke="#86efac" stroke-width="2"/>
+<text x="1160.0" y="294" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1160.0" dy="0">Классификация, факты,</tspan><tspan x="1160.0" dy="24.4">выводы и риски</tspan></text>
+<line x1="614" y1="304.0" x2="886" y2="304.0" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="90" y="371" width="500" height="82" rx="13" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+<text x="340.0" y="402" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="340.0" dy="0">Понять возможное</tspan><tspan x="340.0" dy="24.4">влияние события</tspan></text>
+<rect x="910" y="371" width="500" height="82" rx="13" fill="#f8fafc" stroke="#86efac" stroke-width="2"/>
+<text x="1160.0" y="402" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1160.0" dy="0">Аналитический комментарий</tspan><tspan x="1160.0" dy="24.4">и индикатор влияния</tspan></text>
+<line x1="614" y1="412.0" x2="886" y2="412.0" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="90" y="479" width="500" height="82" rx="13" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+<text x="340.0" y="510" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="340.0" dy="0">Учитывать профиль</tspan><tspan x="340.0" dy="24.4">при общении с ассистентом</tspan></text>
+<rect x="910" y="479" width="500" height="82" rx="13" fill="#f8fafc" stroke="#86efac" stroke-width="2"/>
+<text x="1160.0" y="510" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1160.0" dy="0">Профиль пользователя</tspan><tspan x="1160.0" dy="24.4">как контекст чата</tspan></text>
+<line x1="614" y1="520.0" x2="886" y2="520.0" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="90" y="587" width="500" height="82" rx="13" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+<text x="340.0" y="618" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="340.0" dy="0">Задать уточняющий</tspan><tspan x="340.0" dy="24.4">вопрос системе</tspan></text>
+<rect x="910" y="587" width="500" height="82" rx="13" fill="#f8fafc" stroke="#86efac" stroke-width="2"/>
+<text x="1160.0" y="618" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1160.0" dy="0">Чат-ассистент</tspan><tspan x="1160.0" dy="24.4">на основе LLM</tspan></text>
+<line x1="614" y1="628.0" x2="886" y2="628.0" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<rect x="90" y="695" width="500" height="82" rx="13" fill="#f8fafc" stroke="#93c5fd" stroke-width="2"/>
+<text x="340.0" y="726" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="340.0" dy="0">Сохранить стабильность</tspan><tspan x="340.0" dy="24.4">при сбоях AI-сервиса</tspan></text>
+<rect x="910" y="695" width="500" height="82" rx="13" fill="#f8fafc" stroke="#86efac" stroke-width="2"/>
+<text x="1160.0" y="726" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1160.0" dy="0">Rules-анализ</tspan><tspan x="1160.0" dy="24.4">и fallback-механизмы</tspan></text>
+<line x1="614" y1="736.0" x2="886" y2="736.0" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1650" height="940" viewBox="0 0 1650 940">
+<defs><marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="3.5" orient="auto"><path d="M0,0 L0,7 L10,3.5 z" fill="#64748b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="825.0" y="68" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#111827" font-weight="700" text-anchor="middle">Алгоритмический контур обработки данных FinPulse</text>
+<rect x="70" y="120" width="1510" height="46" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="825.0" y="151" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#334155" font-weight="700" text-anchor="middle">Контур обработки публичных новостей</text>
+<rect x="90" y="245" width="235" height="108" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="207.5" y="281" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="207.5" dy="0">RSS-источники</tspan></text>
+<text x="207.5" y="321" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="207.5" dy="0">заголовок, анонс,</tspan><tspan x="207.5" dy="18.91">ссылка, источник</tspan></text>
+<rect x="405" y="245" width="250" height="108" rx="16" fill="#f8fafc" stroke="#64748b" stroke-width="3"/>
+<text x="530.0" y="281" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="530.0" dy="0">Очистка и</tspan><tspan x="530.0" dy="25.62">фильтрация</tspan></text>
+<text x="530.0" y="321" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="530.0" dy="0">русскоязычность,</tspan><tspan x="530.0" dy="18.91">технический шум</tspan></text>
+<rect x="750" y="200" width="260" height="108" rx="16" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+<text x="880.0" y="236" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="880.0" dy="0">GigaChat</tspan></text>
+<text x="880.0" y="276" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="880.0" dy="0">структурный JSON</tspan><tspan x="880.0" dy="18.91">для публичной ленты</tspan></text>
+<rect x="750" y="340" width="260" height="108" rx="16" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+<text x="880.0" y="376" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="880.0" dy="0">Rules-анализ</tspan></text>
+<text x="880.0" y="416" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="880.0" dy="0">резервная оценка</tspan><tspan x="880.0" dy="18.91">по ключевым сигналам</tspan></text>
+<rect x="1095" y="270" width="275" height="122" rx="16" fill="#ecfdf5" stroke="#16a34a" stroke-width="3"/>
+<text x="1232.5" y="306" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="1232.5" dy="0">Нормализация</tspan><tspan x="1232.5" dy="25.62">результата</tspan></text>
+<text x="1232.5" y="346" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="1232.5" dy="0">summary, facts,</tspan><tspan x="1232.5" dy="18.91">risks, indicator</tspan></text>
+<rect x="1450" y="270" width="150" height="122" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="3"/>
+<text x="1525.0" y="306" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="1525.0" dy="0">PostgreSQL</tspan></text>
+<text x="1525.0" y="346" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="1525.0" dy="0">кэш</tspan><tspan x="1525.0" dy="18.91">и карточки</tspan></text>
+<line x1="325" y1="299" x2="405" y2="299" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<line x1="655" y1="299" x2="750" y2="254" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<line x1="655" y1="299" x2="750" y2="394" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<line x1="1010" y1="254" x2="1095" y2="315" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<line x1="1010" y1="394" x2="1095" y2="348" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<line x1="1370" y1="331" x2="1450" y2="331" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<rect x="70" y="535" width="1510" height="46" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="825.0" y="566" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#334155" font-weight="700" text-anchor="middle">Контур диалогового ассистента</text>
+<rect x="110" y="665" width="275" height="112" rx="16" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="247.5" y="701" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="247.5" dy="0">Сообщение</tspan><tspan x="247.5" dy="25.62">пользователя</tspan></text>
+<text x="247.5" y="741" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="247.5" dy="0">вопрос о рынке,</tspan><tspan x="247.5" dy="18.91">риске или новости</tspan></text>
+<rect x="480" y="665" width="290" height="112" rx="16" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
+<text x="625.0" y="701" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="625.0" dy="0">Prompt-контекст</tspan></text>
+<text x="625.0" y="741" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="625.0" dy="0">история диалога</tspan><tspan x="625.0" dy="18.91">+ профиль</tspan></text>
+<rect x="865" y="665" width="245" height="112" rx="16" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+<text x="987.5" y="701" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="987.5" dy="0">Ollama</tspan></text>
+<text x="987.5" y="741" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="987.5" dy="0">генерация ответа</tspan><tspan x="987.5" dy="18.91">ассистента</tspan></text>
+<rect x="1205" y="665" width="285" height="112" rx="16" fill="#ecfdf5" stroke="#16a34a" stroke-width="3"/>
+<text x="1347.5" y="701" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="1347.5" dy="0">Ответ</tspan><tspan x="1347.5" dy="25.62">пользователю</tspan></text>
+<text x="1347.5" y="741" font-family="Arial, Helvetica, sans-serif" font-size="15.5" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="1347.5" dy="0">объяснение без</tspan><tspan x="1347.5" dy="18.91">команд купить/продать</tspan></text>
+<line x1="385" y1="721" x2="480" y2="721" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<line x1="770" y1="721" x2="865" y2="721" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<line x1="1110" y1="721" x2="1205" y2="721" stroke="#64748b" stroke-width="2.8" marker-end="url(#arrow)"/>
+<rect x="455" y="818" width="740" height="58" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="825" y="855" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#334155" font-weight="700" text-anchor="middle">История чата и профиль хранятся в PostgreSQL</text>
+</svg>

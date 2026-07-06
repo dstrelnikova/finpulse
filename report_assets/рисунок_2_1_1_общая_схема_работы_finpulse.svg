@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="880" viewBox="0 0 1500 880">
+<defs><marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="3.5" orient="auto"><path d="M0,0 L0,7 L10,3.5 z" fill="#64748b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="750.0" y="58" font-family="Arial, Helvetica, sans-serif" font-size="32" fill="#111827" font-weight="700" text-anchor="middle">Общая схема работы системы FinPulse</text>
+<rect x="80" y="175" width="330" height="150" rx="18" fill="#eff6ff" stroke="#2563eb" stroke-width="3"/>
+<text x="245" y="225" font-family="Arial, Helvetica, sans-serif" font-size="25" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="245" dy="0">Пользовательский</tspan><tspan x="245" dy="30.5">интерфейс</tspan></text>
+<text x="245" y="285" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="245" dy="0">React/Vite web,</tspan><tspan x="245" dy="21.96">Tauri/macOS, Expo mobile</tspan></text>
+<rect x="560" y="155" width="380" height="190" rx="18" fill="#f8fafc" stroke="#475569" stroke-width="3"/>
+<text x="750" y="205" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#0f172a" font-weight="700" text-anchor="middle">Backend API</text>
+<text x="750" y="250" font-family="Arial, Helvetica, sans-serif" font-size="19" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="750" dy="0">FastAPI, авторизация,</tspan><tspan x="750" dy="23.18">права доступа, маршруты API</tspan></text>
+<text x="750" y="305" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="750" dy="0">Публичные новости, чат,</tspan><tspan x="750" dy="21.96">профиль, MOEX-раздел</tspan></text>
+<rect x="1090" y="175" width="330" height="150" rx="18" fill="#ecfdf5" stroke="#16a34a" stroke-width="3"/>
+<text x="1255" y="225" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="1255" dy="0">PostgreSQL</tspan></text>
+<text x="1255" y="280" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="1255" dy="0">Пользователи, роли,</tspan><tspan x="1255" dy="21.96">профили, история чата, новости</tspan></text>
+<rect x="115" y="540" width="300" height="130" rx="16" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+<text x="265.0" y="585" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="265.0" dy="0">RSS-источники</tspan></text>
+<text x="265.0" y="628" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="265.0" dy="0">новости российского</tspan><tspan x="265.0" dy="21.96">фондового рынка</tspan></text>
+<rect x="455" y="540" width="300" height="130" rx="16" fill="#f5f3ff" stroke="#7c3aed" stroke-width="3"/>
+<text x="605.0" y="585" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="605.0" dy="0">GigaChat</tspan></text>
+<text x="605.0" y="628" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="605.0" dy="0">AI-обработка</tspan><tspan x="605.0" dy="21.96">публичных новостей</tspan></text>
+<rect x="795" y="540" width="300" height="130" rx="16" fill="#eef2ff" stroke="#4f46e5" stroke-width="3"/>
+<text x="945.0" y="585" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="945.0" dy="0">Ollama</tspan></text>
+<text x="945.0" y="628" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="945.0" dy="0">закрытый</tspan><tspan x="945.0" dy="21.96">чат-ассистент</tspan></text>
+<rect x="1135" y="540" width="300" height="130" rx="16" fill="#f0fdf4" stroke="#059669" stroke-width="3"/>
+<text x="1285.0" y="585" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="1285.0" dy="0">MOEX ISS</tspan></text>
+<text x="1285.0" y="628" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#334155" font-weight="500" text-anchor="middle"><tspan x="1285.0" dy="0">котировки</tspan><tspan x="1285.0" dy="21.96">индекса Мосбиржи</tspan></text>
+<line x1="410" y1="250" x2="560" y2="250" stroke="#64748b" stroke-width="2.7" marker-end="url(#arrow)"/>
+<line x1="940" y1="250" x2="1090" y2="250" stroke="#64748b" stroke-width="2.7" marker-end="url(#arrow)"/>
+<line x1="265" y1="540" x2="610" y2="345" stroke="#64748b" stroke-width="2.7" marker-end="url(#arrow)"/>
+<line x1="605" y1="540" x2="700" y2="345" stroke="#64748b" stroke-width="2.7" marker-end="url(#arrow)"/>
+<line x1="945" y1="540" x2="820" y2="345" stroke="#64748b" stroke-width="2.7" marker-end="url(#arrow)"/>
+<line x1="1285" y1="540" x2="890" y2="345" stroke="#64748b" stroke-width="2.7" marker-end="url(#arrow)"/>
+<rect x="205" y="735" width="1090" height="86" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="750" y="772" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#334155" font-weight="700" text-anchor="middle"><tspan x="750" dy="0">Результат: структурированные новости и рыночный контекст</tspan><tspan x="750" dy="25.62">в формате аналитических карточек и диалоговых ответов</tspan></text>
+</svg>

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1010" viewBox="0 0 1500 1010">
+<defs><marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="3.5" orient="auto"><path d="M0,0 L0,7 L10,3.5 z" fill="#64748b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="750.0" y="54" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="750.0" dy="0">Проблемы частного инвестора при работе с финансовой информацией</tspan><tspan x="750.0" dy="37.5">и решения, реализованные в FinPulse</tspan></text>
+<rect x="105" y="112" width="480" height="48" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="875" y="112" width="480" height="48" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+<text x="345.0" y="143" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#1e3a8a" font-weight="700" text-anchor="middle">Проблема пользователя</text>
+<text x="1115.0" y="143" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#065f46" font-weight="700" text-anchor="middle">Решение в FinPulse</text>
+<rect x="105" y="150" width="480" height="88" rx="14" fill="#e0f2fe" stroke="#0284c7" stroke-width="2.6"/>
+<text x="345.0" y="184" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="345.0" dy="0">Слишком много</tspan><tspan x="345.0" dy="26.25">новостей</tspan></text>
+<rect x="875" y="150" width="480" height="88" rx="14" fill="#ffffff" stroke="#0284c7" stroke-width="2.4"/>
+<text x="1115.0" y="184" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1115.0" dy="0">Автоматическая</tspan><tspan x="1115.0" dy="26.25">суммаризация</tspan></text>
+<line x1="619" y1="194.0" x2="841" y2="194.0" stroke="#64748b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="105" y="268" width="480" height="88" rx="14" fill="#ecfdf5" stroke="#059669" stroke-width="2.6"/>
+<text x="345.0" y="302" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="345.0" dy="0">Непонятно,</tspan><tspan x="345.0" dy="26.25">что важно</tspan></text>
+<rect x="875" y="268" width="480" height="88" rx="14" fill="#ffffff" stroke="#059669" stroke-width="2.4"/>
+<text x="1115.0" y="302" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1115.0" dy="0">Индикатор влияния</tspan><tspan x="1115.0" dy="26.25">и ключевые факты</tspan></text>
+<line x1="619" y1="312.0" x2="841" y2="312.0" stroke="#64748b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="105" y="386" width="480" height="88" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="2.6"/>
+<text x="345.0" y="420" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="345.0" dy="0">Сложно оценить</tspan><tspan x="345.0" dy="26.25">последствия события</tspan></text>
+<rect x="875" y="386" width="480" height="88" rx="14" fill="#ffffff" stroke="#ea580c" stroke-width="2.4"/>
+<text x="1115.0" y="420" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1115.0" dy="0">AI-комментарий</tspan><tspan x="1115.0" dy="26.25">и аналитический вывод</tspan></text>
+<line x1="619" y1="430.0" x2="841" y2="430.0" stroke="#64748b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="105" y="504" width="480" height="88" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="2.6"/>
+<text x="345.0" y="538" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="345.0" dy="0">Недостаточно</tspan><tspan x="345.0" dy="26.25">контекста запроса</tspan></text>
+<rect x="875" y="504" width="480" height="88" rx="14" fill="#ffffff" stroke="#dc2626" stroke-width="2.4"/>
+<text x="1115.0" y="538" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1115.0" dy="0">Профиль пользователя</tspan><tspan x="1115.0" dy="26.25">как контекст чата</tspan></text>
+<line x1="619" y1="548.0" x2="841" y2="548.0" stroke="#64748b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="105" y="622" width="480" height="88" rx="14" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2.6"/>
+<text x="345.0" y="656" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="345.0" dy="0">Нельзя задать</tspan><tspan x="345.0" dy="26.25">уточняющий вопрос</tspan></text>
+<rect x="875" y="622" width="480" height="88" rx="14" fill="#ffffff" stroke="#7c3aed" stroke-width="2.4"/>
+<text x="1115.0" y="656" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1115.0" dy="0">Чат-ассистент</tspan><tspan x="1115.0" dy="26.25">на основе LLM</tspan></text>
+<line x1="619" y1="666.0" x2="841" y2="666.0" stroke="#64748b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="105" y="740" width="480" height="88" rx="14" fill="#f0fdf4" stroke="#16a34a" stroke-width="2.6"/>
+<text x="345.0" y="774" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="345.0" dy="0">Риск сбоя</tspan><tspan x="345.0" dy="26.25">AI-сервиса</tspan></text>
+<rect x="875" y="740" width="480" height="88" rx="14" fill="#ffffff" stroke="#16a34a" stroke-width="2.4"/>
+<text x="1115.0" y="774" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1115.0" dy="0">Fallback</tspan><tspan x="1115.0" dy="26.25">на rules-анализ</tspan></text>
+<line x1="619" y1="784.0" x2="841" y2="784.0" stroke="#64748b" stroke-width="2.6" marker-end="url(#arrow)"/>
+<rect x="315" y="865" width="870" height="92" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+<text x="750" y="900" font-family="Arial, Helvetica, sans-serif" font-size="21" fill="#334155" font-weight="700" text-anchor="middle"><tspan x="750" dy="0">Итог: новостной поток преобразуется</tspan><tspan x="750" dy="26.25">в структурированную аналитическую картину</tspan></text>
+</svg>

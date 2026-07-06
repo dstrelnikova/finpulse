@@ -1,0 +1,158 @@
+name: finpulse
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: finpulse-ollama
+    env_file:
+      - ${ENV_FILE:-.env}
+    environment:
+      OLLAMA_HOST: "0.0.0.0:11434"
+      OLLAMA_FLASH_ATTENTION: "1"
+      OLLAMA_KV_CACHE_TYPE: "q8_0"
+      OLLAMA_NUM_PARALLEL: ${OLLAMA_MAX_CONCURRENCY:-1}
+      OLLAMA_NUM_THREADS: "6"
+    volumes:
+      - ollama:/root/.ollama
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+    networks:
+      - finpulse
+
+  ollama-init:
+    image: ollama/ollama:latest
+    container_name: finpulse-ollama-init
+    env_file:
+      - ${ENV_FILE:-.env}
+    environment:
+      OLLAMA_HOST: "http://ollama:11434"
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:1.5b}
+    depends_on:
+      ollama:
+        condition: service_healthy
+    entrypoint: >
+      /bin/sh -c "
+      ollama pull $$OLLAMA_MODEL;
+      echo 'Ollama chat model ensured: '$$OLLAMA_MODEL;
+      "
+    restart: "no"
+    networks:
+      - finpulse
+
+  db:
+    image: postgres:16-alpine
+    container_name: finpulse-db
+    env_file:
+      - ${ENV_FILE:-.env}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+    networks:
+      - finpulse
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: finpulse-backend
+    env_file:
+      - ${ENV_FILE:-.env}
+    environment:
+      NEWS_USE_LLM: ${NEWS_USE_LLM:-false}
+      NEWS_LLM_FOR_PUBLIC_RSS: ${NEWS_LLM_FOR_PUBLIC_RSS:-false}
+      OLLAMA_URL: ${OLLAMA_URL:-http://ollama:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:1.5b}
+      OLLAMA_MAX_CONCURRENCY: ${OLLAMA_MAX_CONCURRENCY:-1}
+      OLLAMA_CHAT_TIMEOUT_SEC: ${OLLAMA_CHAT_TIMEOUT_SEC:-180}
+      OLLAMA_CHAT_NUM_PREDICT: ${OLLAMA_CHAT_NUM_PREDICT:-700}
+      GIGACHAT_AUTH_KEY: ${GIGACHAT_AUTH_KEY:-}
+      GIGACHAT_SCOPE: ${GIGACHAT_SCOPE:-GIGACHAT_API_PERS}
+      GIGACHAT_MODEL: ${GIGACHAT_MODEL:-GigaChat}
+      GIGACHAT_OAUTH_URL: ${GIGACHAT_OAUTH_URL:-https://ngw.devices.sberbank.ru:9443/api/v2/oauth}
+      GIGACHAT_API_URL: ${GIGACHAT_API_URL:-https://gigachat.devices.sberbank.ru/api/v1}
+      GIGACHAT_TIMEOUT_SEC: ${GIGACHAT_TIMEOUT_SEC:-60}
+      GIGACHAT_VERIFY_SSL: ${GIGACHAT_VERIFY_SSL:-true}
+      GIGACHAT_CHAT_MAX_TOKENS: ${GIGACHAT_CHAT_MAX_TOKENS:-700}
+      GIGACHAT_NEWS_MAX_TOKENS: ${GIGACHAT_NEWS_MAX_TOKENS:-700}
+      GIGACHAT_MIN_REQUEST_INTERVAL_SEC: ${GIGACHAT_MIN_REQUEST_INTERVAL_SEC:-1.2}
+      GIGACHAT_MAX_RETRIES: ${GIGACHAT_MAX_RETRIES:-2}
+      NEWS_PUBLIC_RSS_LLM_LIMIT: ${NEWS_PUBLIC_RSS_LLM_LIMIT:-12}
+      NEWS_PUBLIC_MAX_AGE_DAYS: ${NEWS_PUBLIC_MAX_AGE_DAYS:-7}
+      NEWS_PUBLIC_MIN_FACTS: ${NEWS_PUBLIC_MIN_FACTS:-2}
+      NEWS_PUBLIC_MIN_CONFIDENCE: ${NEWS_PUBLIC_MIN_CONFIDENCE:-medium}
+      NEWS_PUBLIC_HIDE_RSS_ONLY_LOW_INFO: ${NEWS_PUBLIC_HIDE_RSS_ONLY_LOW_INFO:-true}
+      NEWS_PUBLIC_AUTO_REFRESH_ENABLED: ${NEWS_PUBLIC_AUTO_REFRESH_ENABLED:-true}
+      NEWS_PUBLIC_AUTO_REFRESH_INTERVAL_HOURS: ${NEWS_PUBLIC_AUTO_REFRESH_INTERVAL_HOURS:-24}
+      NEWS_PUBLIC_AUTO_REFRESH_STARTUP_DELAY_SEC: ${NEWS_PUBLIC_AUTO_REFRESH_STARTUP_DELAY_SEC:-30}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_HOST: ${POSTGRES_HOST}
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      DB_ECHO: ${DB_ECHO:-false}
+      SECRET_KEY: ${SECRET_KEY}
+      ALGORITHM: ${ALGORITHM}
+      ACCESS_EXPIRE_MINUTES: ${ACCESS_EXPIRE_MINUTES}
+      REFRESH_EXPIRE_DAYS: ${REFRESH_EXPIRE_DAYS}
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      FRONTEND_BASE_URL: ${FRONTEND_BASE_URL}
+      API_BASE_URL: ${API_BASE_URL}
+    depends_on:
+      db:
+        condition: service_healthy
+      ollama:
+        condition: service_healthy
+      ollama-init:
+        condition: service_completed_successfully
+    entrypoint: ["/app/entrypoint.sh"]
+    command: ["python", "-m", "uvicorn", "app.presentation.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz', timeout=2)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 15s
+    restart: unless-stopped
+    networks:
+      - finpulse
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: "/api"
+    container_name: finpulse-frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/healthz || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    restart: unless-stopped
+    networks:
+      - finpulse
+
+volumes:
+  ollama:
+  pgdata:
+
+networks:
+  finpulse:
+    driver: bridge

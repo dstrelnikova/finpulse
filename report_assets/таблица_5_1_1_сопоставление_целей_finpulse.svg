@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1060" viewBox="0 0 1600 1060">
+  <defs>
+    <style>
+      .bg { fill: #f6f8fb; }
+      .panel { fill: #ffffff; stroke: #d8e0ea; stroke-width: 2; }
+      .header { fill: #07111f; }
+      .headerText { fill: #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 700; }
+      .title { fill: #111827; font-family: Arial, Helvetica, sans-serif; font-size: 34px; font-weight: 800; }
+      .subtitle { fill: #526174; font-family: Arial, Helvetica, sans-serif; font-size: 20px; }
+      .th { fill: #334155; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 700; }
+      .tdStrong { fill: #111827; font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 700; }
+      .td { fill: #334155; font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
+      .small { fill: #64748b; font-family: Arial, Helvetica, sans-serif; font-size: 16px; }
+      .status { fill: #047857; font-family: Arial, Helvetica, sans-serif; font-size: 18px; font-weight: 700; }
+      .statusBg { fill: #dcfce7; stroke: #86efac; stroke-width: 1.5; }
+      .line { stroke: #e2e8f0; stroke-width: 2; }
+      .blue { fill: #eff6ff; }
+      .green { fill: #ecfdf5; }
+      .amber { fill: #fffbeb; }
+      .violet { fill: #f5f3ff; }
+      .gray { fill: #f8fafc; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1060"/>
+
+  <rect class="panel" x="48" y="42" width="1504" height="976" rx="18"/>
+
+  <text class="title" x="86" y="100">Таблица 5.1.1 - Сопоставление целей проекта с реализованным функционалом FinPulse</text>
+  <text class="subtitle" x="86" y="136">Итоговая проверка показывает, какие требования MVP закрыты в реализованной системе</text>
+
+  <rect class="header" x="86" y="176" width="1428" height="70" rx="12"/>
+  <text class="headerText" x="116" y="220">Цель / требование</text>
+  <text class="headerText" x="486" y="220">Реализация в FinPulse</text>
+  <text class="headerText" x="1030" y="220">Подтверждение</text>
+  <text class="headerText" x="1348" y="220">Статус</text>
+
+  <!-- table grid -->
+  <line class="line" x1="456" y1="176" x2="456" y2="898"/>
+  <line class="line" x1="1000" y1="176" x2="1000" y2="898"/>
+  <line class="line" x1="1324" y1="176" x2="1324" y2="898"/>
+
+  <!-- rows -->
+  <rect class="blue" x="86" y="258" width="1428" height="86"/>
+  <text class="tdStrong" x="116" y="294">Получение новостей рынка РФ</text>
+  <text class="td" x="486" y="286">Публичная RSS-лента новостей</text>
+  <text class="td" x="486" y="314">с сохранением обработанных материалов</text>
+  <text class="td" x="1030" y="286">Разделы 3.2, 4.1;</text>
+  <text class="td" x="1030" y="314">публичная лента новостей</text>
+  <rect class="statusBg" x="1350" y="278" width="126" height="40" rx="20"/>
+  <text class="status" x="1373" y="304">Выполнено</text>
+
+  <rect class="gray" x="86" y="344" width="1428" height="86"/>
+  <line class="line" x1="86" y1="344" x2="1514" y2="344"/>
+  <text class="tdStrong" x="116" y="380">Структурированная карточка</text>
+  <text class="td" x="486" y="372">Карточка содержит summary, facts,</text>
+  <text class="td" x="486" y="400">market meaning, risks и indicator</text>
+  <text class="td" x="1030" y="372">Скрины карточек;</text>
+  <text class="td" x="1030" y="400">разделы 2.2, 3.2</text>
+  <rect class="statusBg" x="1350" y="364" width="126" height="40" rx="20"/>
+  <text class="status" x="1373" y="390">Выполнено</text>
+
+  <rect class="green" x="86" y="430" width="1428" height="86"/>
+  <line class="line" x1="86" y1="430" x2="1514" y2="430"/>
+  <text class="tdStrong" x="116" y="466">AI-анализ и резервный режим</text>
+  <text class="td" x="486" y="458">GigaChat формирует JSON-карточку,</text>
+  <text class="td" x="486" y="486">rules-анализ используется как fallback</text>
+  <text class="td" x="1030" y="458">Листинги 2.2.1, 2.2.3;</text>
+  <text class="td" x="1030" y="486">раздел 4.3</text>
+  <rect class="statusBg" x="1350" y="450" width="126" height="40" rx="20"/>
+  <text class="status" x="1373" y="476">Выполнено</text>
+
+  <rect class="gray" x="86" y="516" width="1428" height="86"/>
+  <line class="line" x1="86" y1="516" x2="1514" y2="516"/>
+  <text class="tdStrong" x="116" y="552">Диалоговый ассистент</text>
+  <text class="td" x="486" y="544">Чат на Ollama, история сообщений,</text>
+  <text class="td" x="486" y="572">проверка и восстановление ответа</text>
+  <text class="td" x="1030" y="544">Раздел 3.3;</text>
+  <text class="td" x="1030" y="572">скрины чата</text>
+  <rect class="statusBg" x="1350" y="536" width="126" height="40" rx="20"/>
+  <text class="status" x="1373" y="562">Выполнено</text>
+
+  <rect class="violet" x="86" y="602" width="1428" height="86"/>
+  <line class="line" x1="86" y1="602" x2="1514" y2="602"/>
+  <text class="tdStrong" x="116" y="638">Пользовательский контекст</text>
+  <text class="td" x="486" y="630">Профиль хранит горизонт, опыт, риск,</text>
+  <text class="td" x="486" y="658">тикеры и сектора для контекста чата</text>
+  <text class="td" x="1030" y="630">Разделы 3.3, 3.4;</text>
+  <text class="td" x="1030" y="658">скрины профиля</text>
+  <rect class="statusBg" x="1350" y="622" width="126" height="40" rx="20"/>
+  <text class="status" x="1373" y="648">Выполнено</text>
+
+  <rect class="gray" x="86" y="688" width="1428" height="86"/>
+  <line class="line" x1="86" y1="688" x2="1514" y2="688"/>
+  <text class="tdStrong" x="116" y="724">Рыночные данные MOEX</text>
+  <text class="td" x="486" y="716">Котировки IMOEX, динамика бумаг,</text>
+  <text class="td" x="486" y="744">лидер роста и лидер снижения</text>
+  <text class="td" x="1030" y="716">Раздел 3.4.6;</text>
+  <text class="td" x="1030" y="744">скрины MOEX</text>
+  <rect class="statusBg" x="1350" y="708" width="126" height="40" rx="20"/>
+  <text class="status" x="1373" y="734">Выполнено</text>
+
+  <rect class="amber" x="86" y="774" width="1428" height="124"/>
+  <line class="line" x1="86" y1="774" x2="1514" y2="774"/>
+  <text class="tdStrong" x="116" y="810">Доступность и безопасность</text>
+  <text class="td" x="486" y="802">JWT-авторизация, роли и permissions,</text>
+  <text class="td" x="486" y="830">desktop-сборка Tauri и мобильное</text>
+  <text class="td" x="486" y="858">представление на телефоне</text>
+  <text class="td" x="1030" y="802">Разделы 3.1.4, 4.1, 4.2;</text>
+  <text class="td" x="1030" y="830">свойства FinPulse.app,</text>
+  <text class="td" x="1030" y="858">скрины телефона</text>
+  <rect class="statusBg" x="1350" y="818" width="126" height="40" rx="20"/>
+  <text class="status" x="1373" y="844">Выполнено</text>
+
+  <rect x="86" y="928" width="1428" height="56" rx="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="1.5"/>
+  <text class="tdStrong" x="116" y="963">Итог:</text>
+  <text class="td" x="180" y="963">ключевые цели MVP достигнуты; система реализует полный цикл от получения новости до аналитической интерпретации и диалогового уточнения.</text>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="760" viewBox="0 0 1300 760">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="650.0" y="64" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#111827" font-weight="700" text-anchor="middle">Факторы роста потребности в AI-анализе финансовой информации</text>
+<rect x="475" y="305" width="350" height="150" rx="18" fill="#eff6ff" stroke="#1f6feb" stroke-width="3"/>
+<text x="650.0" y="354" font-family="Arial, Helvetica, sans-serif" font-size="23" fill="#0f172a" font-weight="700" text-anchor="middle"><tspan x="650.0" dy="0">Потребность в</tspan><tspan x="650.0" dy="28.75">AI-анализе финансовой</tspan><tspan x="650.0" dy="28.75">информации</tspan></text>
+<rect x="85" y="165" width="315" height="115" rx="16" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+<text x="242.5" y="208" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="242.5" dy="0">Рост числа</tspan><tspan x="242.5" dy="27.5">частных инвесторов</tspan></text>
+<rect x="900" y="165" width="330" height="115" rx="16" fill="#ecfdf5" stroke="#059669" stroke-width="3"/>
+<text x="1065.0" y="208" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1065.0" dy="0">Увеличение объема</tspan><tspan x="1065.0" dy="27.5">финансовых новостей</tspan></text>
+<rect x="85" y="510" width="340" height="115" rx="16" fill="#fff7ed" stroke="#ea580c" stroke-width="3"/>
+<text x="255.0" y="553" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="255.0" dy="0">Высокая чувствительность</tspan><tspan x="255.0" dy="27.5">рынка к событиям</tspan></text>
+<rect x="870" y="510" width="360" height="115" rx="16" fill="#fef2f2" stroke="#dc2626" stroke-width="3"/>
+<text x="1050.0" y="553" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#111827" font-weight="500" text-anchor="middle"><tspan x="1050.0" dy="0">Потребность в быстрой</tspan><tspan x="1050.0" dy="27.5">и понятной интерпретации</tspan></text>
+<line x1="400" y1="222" x2="475" y2="350" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="900" y1="222" x2="825" y2="350" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="425" y1="568" x2="475" y2="410" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+<line x1="870" y1="568" x2="825" y2="410" stroke="#64748b" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>

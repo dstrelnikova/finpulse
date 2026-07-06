@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "finpulse-backend"
+version = "0.1.0"
+description = ""
+authors = ["Darya <darya@example.com>"]
+readme = "README.md"
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+python-jose = { extras = ["cryptography"], version = "^3.3.0" }
+
+# FastAPI runtime
+fastapi = "^0.110.0"
+uvicorn = { extras = ["standard"], version = "^0.30.0" }
+
+# Полезные штуки почти всегда нужны в бэке
+pydantic = "^2.7.0"
+pydantic-settings = "^2.2.0"
+python-dotenv = "^1.0.1"
+httpx = "^0.27.0"
+orjson = "^3.10.0"
+
+# Если используешь CORS
+# fastapi-cors = "^0.0.6"  # (обычно не нужен, CORS есть в starlette.middleware)
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.4.2"
+isort = "^5.13.2"
+autoflake = "^2.3.1"
+pytest = "^8.2.0"
+pytest-cov = "^6.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.8.0"]
+build-backend = "poetry.core.masonry.api"
+
+# -----------------------------
+# Formatting / lint tools
+# -----------------------------
+
+[tool.black]
+line-length = 120
+target-version = ["py311"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.venv
+  | venv
+  | build
+  | dist
+  | __pycache__
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 120
+multi_line_output = 3
+include_trailing_comma = true
+ensure_newline_before_comments = true
+use_parentheses = true
+skip = ["venv", ".venv", "build", "dist", "__pycache__"]
+
+[tool.autoflake]
+remove-all-unused-imports = true
+remove-unused-variables = true
+ignore-init-module-imports = true

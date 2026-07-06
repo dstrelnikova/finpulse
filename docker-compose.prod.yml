@@ -1,0 +1,13 @@
+services:
+  ollama:
+    ports: []
+
+  db:
+    ports: []
+
+  backend:
+    ports: []
+
+  frontend:
+    ports:
+      - "80:80"

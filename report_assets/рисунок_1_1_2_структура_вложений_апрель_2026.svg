@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720">
+<rect width="100%" height="100%" fill="white"/>
+<text x="550.0" y="48" font-family="Arial, Helvetica, sans-serif" font-size="27" fill="#111827" font-weight="700" text-anchor="middle"><tspan x="550.0" dy="0">Структура вложений частных инвесторов</tspan><tspan x="550.0" dy="33.75">в ценные бумаги на Московской бирже в апреле 2026 года</tspan></text>
+<path d="M 390.00 170.00 A 195 195 0 1 1 195.62 349.44 L 285.33 356.62 A 105 105 0 1 0 390.00 260.00 Z" fill="#2563eb" stroke="white" stroke-width="4"/>
+<text x="546.0117223420117" y="538.9980546985055" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827" font-weight="700" text-anchor="middle">76.3%</text>
+<path d="M 195.62 349.44 A 195 195 0 0 1 268.13 212.77 L 324.38 283.03 A 105 105 0 0 0 285.33 356.62 Z" fill="#16a34a" stroke="white" stroke-width="4"/>
+<text x="186.82576705758305" y="262.2028243957176" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827" font-weight="700" text-anchor="middle">13.0%</text>
+<path d="M 268.13 212.77 A 195 195 0 0 1 390.00 170.00 L 390.00 260.00 A 105 105 0 0 0 324.38 283.03 Z" fill="#f59e0b" stroke="white" stroke-width="4"/>
+<text x="313.83292564129965" y="152.97793480008488" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#111827" font-weight="700" text-anchor="middle">10.7%</text>
+<circle cx="390" cy="365" r="103" fill="white"/>
+<text x="390" y="357" font-family="Arial, Helvetica, sans-serif" font-size="38" fill="#111827" font-weight="700" text-anchor="middle">348,1</text>
+<text x="390" y="395" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#4b5563" font-weight="400" text-anchor="middle">млрд руб.</text>
+<rect x="705" y="257" width="28" height="28" rx="5" fill="#2563eb"/>
+<text x="750" y="275" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="start">Облигации: 265.5 млрд руб.</text>
+<rect x="705" y="329" width="28" height="28" rx="5" fill="#16a34a"/>
+<text x="750" y="347" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="start">Акции: 45.2 млрд руб.</text>
+<rect x="705" y="401" width="28" height="28" rx="5" fill="#f59e0b"/>
+<text x="750" y="419" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#111827" font-weight="500" text-anchor="start">Паи фондов: 37.4 млрд руб.</text>
+<text x="20" y="692" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#4b5563" font-weight="400" text-anchor="start">Источник: Московская биржа, данные за апрель 2026 г.</text>
+</svg>
