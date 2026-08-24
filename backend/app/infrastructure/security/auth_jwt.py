@@ -1,5 +1,6 @@
 from datetime import UTC, datetime, timedelta
 from typing import Optional
+from uuid import uuid4
 
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
@@ -17,7 +18,9 @@ def _create_token(data: dict, expires_delta: timedelta):
     expire = datetime.now(UTC) + expires_delta
     if "sub" in to_encode:
         to_encode["sub"] = str(to_encode["sub"])
-    to_encode.update({"exp": expire})
+    # A unique JWT ID makes refresh-token rotation effective even when both
+    # tokens are issued during the same second (JWT timestamps are second-based).
+    to_encode.update({"exp": expire, "jti": str(uuid4())})
     return jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
 
 

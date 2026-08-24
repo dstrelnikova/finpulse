@@ -5,7 +5,12 @@ from pydantic import BaseModel, Field
 
 
 class ChatIn(BaseModel):
-    message: str
+    message: str = Field(
+        min_length=1,
+        max_length=4000,
+        description="Сообщение пользователя для AI-ассистента",
+        examples=["Как ключевая ставка влияет на российские акции?"],
+    )
     chat_id: Optional[int] = None
 
 

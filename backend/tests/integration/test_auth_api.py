@@ -63,6 +63,22 @@ def test_refresh_returns_new_tokens_when_refresh_is_valid(client, fake_user_repo
 
 
 @pytest.mark.integration
+def test_refresh_token_cannot_be_reused_after_rotation(client, fake_user_repo, future_expiry):
+    user = fake_user_repo.get_by_email("user@example.com")
+    assert user is not None
+    refresh_token, _ = create_refresh_token(user.id, user.email)
+    fake_user_repo.update_refresh_token(user.id, refresh_token, future_expiry)
+
+    first = client.post("/auth/refresh", json={"refresh_token": refresh_token})
+    assert first.status_code == 200
+    assert first.json()["refresh_token"] != refresh_token
+
+    replay = client.post("/auth/refresh", json={"refresh_token": refresh_token})
+    assert replay.status_code == 401
+    assert replay.json()["detail"] == "Invalid refresh token"
+
+
+@pytest.mark.integration
 def test_refresh_returns_401_when_token_expired(client, fake_user_repo, past_expiry):
     u = fake_user_repo.get_by_email("user@example.com")
     assert u is not None

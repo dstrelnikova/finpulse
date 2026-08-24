@@ -1,6 +1,6 @@
 from typing import List
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 
 from app.application.use_cases.chat.chat_with_llm import ChatModelUnavailable, ChatWithLLM
 from app.domain.entities.user import User
@@ -14,7 +14,17 @@ from app.presentation.schemas.chat import ChatIn, ChatMessageOut, ChatOut, ChatS
 router = APIRouter(prefix="/chat", tags=["Chat"])
 
 
-@router.post("/send", response_model=ChatOut, dependencies=[Depends(require_permissions(["chat:use"]))])
+@router.post(
+    "/send",
+    response_model=ChatOut,
+    summary="Отправить сообщение AI-ассистенту",
+    responses={
+        401: {"description": "Токен отсутствует или недействителен"},
+        403: {"description": "Недостаточно прав"},
+        503: {"description": "Ollama недоступен"},
+    },
+    dependencies=[Depends(require_permissions(["chat:use"]))],
+)
 async def send_message(
     body: ChatIn,
     current_user: User = Depends(get_current_user),
@@ -39,7 +49,7 @@ async def send_message(
     "/history", response_model=List[ChatMessageOut], dependencies=[Depends(require_permissions(["chat:history_read"]))]
 )
 def get_history(
-    limit: int = 50,
+    limit: int = Query(default=50, ge=1, le=200, description="Число последних сообщений"),
     current_user: User = Depends(get_current_user),
     repo: ChatRepositorySQL = Depends(get_chat_repo),
     chat_session_repo: ChatSessionRepositorySQL = Depends(get_chat_session_repo),

@@ -23,10 +23,12 @@ def test_admin_users_list_success_for_admin(client, auth_headers_for):
 
 
 @pytest.mark.integration
-def test_set_roles_returns_400_for_unknown_role(client, auth_headers_for):
+def test_set_roles_returns_400_for_unknown_role(client, auth_headers_for, fake_user_repo):
+    roles_before = fake_user_repo.get_roles(1)
     res = client.put(
         "/admin/users/1/roles",
         headers=auth_headers_for("admin@example.com"),
         json={"roles": ["superadmin"]},
     )
     assert res.status_code == 400
+    assert fake_user_repo.get_roles(1) == roles_before

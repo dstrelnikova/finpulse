@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import UTC, datetime
 
 from app.application.use_cases.chat.build_prompt import build_chat_context
 from app.domain.entities.chat_message import ChatMessage
@@ -24,7 +24,7 @@ def test_chat_prompt_includes_profile_context():
             chat_id=1,
             role="user",
             content="Что думаешь про мой профиль?",
-            timestamp=datetime.utcnow(),
+            timestamp=datetime.now(UTC),
         )
     ]
 
@@ -49,7 +49,7 @@ def test_chat_prompt_warns_against_repeating_previous_options():
             chat_id=1,
             role="user",
             content="куда вложить 50000 рублей?",
-            timestamp=datetime.utcnow(),
+            timestamp=datetime.now(UTC),
         ),
         ChatMessage(
             id=2,
@@ -57,7 +57,7 @@ def test_chat_prompt_warns_against_repeating_previous_options():
             chat_id=1,
             role="FinPulse",
             content="Можно рассмотреть 50% SBER и 50% YDEX.",
-            timestamp=datetime.utcnow(),
+            timestamp=datetime.now(UTC),
         ),
         ChatMessage(
             id=3,
@@ -65,7 +65,7 @@ def test_chat_prompt_warns_against_repeating_previous_options():
             chat_id=1,
             role="user",
             content="а какие еще могут быть варианты вложений?",
-            timestamp=datetime.utcnow(),
+            timestamp=datetime.now(UTC),
         ),
     ]
 
@@ -84,7 +84,7 @@ def test_chat_prompt_answers_broad_but_clear_financial_topic():
             chat_id=1,
             role="user",
             content="меня интересуют облигации",
-            timestamp=datetime.utcnow(),
+            timestamp=datetime.now(UTC),
         )
     ]
 

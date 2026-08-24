@@ -29,7 +29,16 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
 )
 
-app = FastAPI(title="FinPulse API", version="1.0")
+app = FastAPI(
+    title="FinPulse API",
+    version="1.0.0",
+    summary="REST API сервиса анализа финансовых новостей FinPulse",
+    description=(
+        "API публичной и персональной новостной ленты, котировок MOEX, "
+        "профиля пользователя, AI-чата и административного управления. "
+        "FinPulse не предоставляет инвестиционных рекомендаций."
+    ),
+)
 
 cors_origins = list(
     dict.fromkeys(

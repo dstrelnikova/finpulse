@@ -15,7 +15,7 @@ FinPulse — учебный full-stack MVP, который собирает фи
 - регистрация, JWT-аутентификация, обновление токенов, роли и права доступа;
 - хранение пользователей, профилей, новостей и истории чатов в PostgreSQL;
 - административный раздел для управления пользователями;
-- адаптивный React-интерфейс, macOS-оболочка на Tauri и мобильный MVP на Expo React Native;
+- адаптивный React-интерфейс и macOS-оболочка на Tauri;
 - unit-, integration- и e2e-тесты ключевых сценариев.
 
 ## Как обрабатывается новость
@@ -36,17 +36,16 @@ LLM не обучается внутри проекта: FinPulse интегри
 
 ## Моя роль
 
-Проект самостоятельно разработан мной: от идеи и архитектуры MVP до реализации backend, frontend, AI-интеграций, Docker-конфигурации, тестов и документации.
+FinPulse — самостоятельный учебный проект. Он показывает навыки junior system analyst на работающем примере: от требований и пользовательских сценариев до проверки API, данных и MVP. Разработка использовалась как способ проверить, что документация соответствует реальному поведению системы.
 
 В рамках проекта я:
 
-- спроектировала FastAPI API и структуру приложения по слоям;
-- реализовала авторизацию, роли, профили, новостную ленту и историю чатов;
-- интегрировала Ollama, GigaChat, RSS и MOEX ISS;
-- разработала React-интерфейс и клиентскую маршрутизацию;
-- настроила PostgreSQL, Docker Compose и Nginx;
-- добавила unit-, integration- и e2e-тесты;
-- подготовила desktop- и mobile-варианты MVP.
+- описала функциональные и нефункциональные требования, Use Cases и критерии приёмки;
+- описала клиент-серверную архитектуру, REST API и модель данных PostgreSQL;
+- связала требования, критерии и тестовые сценарии в матрице трассируемости;
+- проверила позитивные, негативные и граничные сценарии;
+- довела React/FastAPI/PostgreSQL/Ollama-контур до работающего Docker Compose MVP;
+- зафиксировала известные ограничения без завышенных заявлений о production-ready системе.
 
 ## Технологии
 
@@ -57,7 +56,7 @@ LLM не обучается внутри проекта: FinPulse интегри
 | Frontend | React, TypeScript, Vite, Tailwind CSS |
 | Данные | PostgreSQL, RSS, MOEX ISS |
 | Инфраструктура | Docker Compose, Nginx |
-| Приложения | Tauri, Expo React Native |
+| Приложения | Tauri |
 | Тестирование | pytest, Vitest, Testing Library, Playwright |
 
 ## Структура проекта
@@ -65,8 +64,7 @@ LLM не обучается внутри проекта: FinPulse интегри
 ```text
 backend/         FastAPI, бизнес-логика, интеграции и тесты
 frontend/        React-приложение и frontend-тесты
-mobile/          мобильный MVP на Expo React Native
-docs/            инструкции для macOS- и iPhone-приложений
+docs/            требования, архитектура, API, данные, тестирование и CI/CD
 report_assets/   материалы проектной документации
 scripts/         вспомогательные скрипты
 docker-compose.yml
@@ -147,9 +145,29 @@ npx playwright install
 npm run test:e2e
 ```
 
+## Документация
+
+- [Requirements](docs/requirements.md)
+- [Use Cases](docs/use-cases.md)
+- [Architecture](docs/architecture.md)
+- [API](docs/api.md)
+- [Data Model](docs/data-model.md)
+- [Technical Specification](docs/specification.md)
+- [Acceptance Criteria](docs/acceptance-criteria.md)
+- [Test Cases](docs/test-cases.md)
+- [Traceability Matrix](docs/traceability-matrix.md)
+- [CI/CD](docs/ci-cd.md)
+- [AppSec Context](docs/appsec-context.md)
+
+Документы разделяют фактическое состояние **AS-IS**, целевое поведение **TARGET** и известные расхождения **GAP**. Связь требований с критериями и проверками показана в матрице трассируемости.
+
+## CI
+
+Workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) запускается для pull request и push в `main`. Независимые jobs проверяют backend (`compileall`, `pytest`) и frontend (TypeScript, Vitest, production build). Production-секреты pipeline не требуются; автоматический deployment не настроен.
+
 ## Дополнительные варианты запуска
 
-Инструкция по macOS-приложению на Tauri и мобильному MVP на Expo находится в [docs/mvp-apps.md](docs/mvp-apps.md).
+Инструкция по macOS-приложению на Tauri находится в [docs/mvp-apps.md](docs/mvp-apps.md). Упомянутый там локальный mobile-прототип исключён из Git и не входит в поставку репозитория.
 
 Прод-конфигурация запускается отдельным compose-файлом:
 
@@ -164,6 +182,9 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
 - rules-based fallback проще LLM-анализа и предназначен для устойчивой деградации сервиса;
 - список бумаг для экрана MOEX ограничен выборкой ликвидных тикеров MVP;
 - ответы AI требуют проверки и не должны использоваться как единственное основание для инвестиционных решений;
-- следующие шаги: расширение источников, аналитики по компаниям и секторам, покрытия тестами, CI/CD и системы уведомлений.
+- схема БД создаётся через SQLAlchemy `create_all`; версионированные миграции пока отсутствуют;
+- CI настроен, но автоматический deployment и AppSec-сканеры не внедрены;
+- после безопасного `npm audit fix` остаются 2 moderate проблемы React Router; major-обновление требует отдельной проверки;
+- следующие шаги: миграции, расширение покрытия API-тестами, SCA/secret scanning и только затем развитие источников и уведомлений.
 
 Проект находится на стадии работающего full-stack MVP.

@@ -37,6 +37,7 @@ from app.infrastructure.dependencies import (  # noqa: E402
 from app.infrastructure.security.auth_jwt import create_access_token  # noqa: E402
 from app.presentation.api.admin_users import router as admin_users_router  # noqa: E402
 from app.presentation.api.auth import router as auth_router  # noqa: E402
+from app.presentation.api.chat import router as chat_router  # noqa: E402
 from app.presentation.api.me import router as me_router  # noqa: E402
 from app.presentation.api.meta import router as meta_router  # noqa: E402
 from app.presentation.api.public_moex import router as public_moex_router  # noqa: E402
@@ -330,6 +331,7 @@ def fake_moex_service() -> FakeMoexService:
 def test_app(fake_user_repo, fake_chat_repo, fake_moex_service) -> FastAPI:
     app = FastAPI(title="FinPulse Test API")
     app.include_router(auth_router)
+    app.include_router(chat_router)
     app.include_router(me_router)
     app.include_router(admin_users_router)
     app.include_router(meta_router)

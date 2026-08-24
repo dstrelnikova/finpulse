@@ -6,7 +6,8 @@ export default defineConfig({
   expect: {
     timeout: 5_000,
   },
-  fullyParallel: true,
+  fullyParallel: false,
+  workers: 1,
   retries: 0,
   reporter: "list",
   use: {
@@ -14,7 +15,7 @@ export default defineConfig({
     trace: "on-first-retry",
   },
   webServer: {
-    command: "npm run build && npm run preview -- --host 127.0.0.1 --port 4173",
+    command: "VITE_API_URL=/api npm run build && npm run preview -- --host 127.0.0.1 --port 4173",
     port: 4173,
     reuseExistingServer: true,
   },

@@ -6,7 +6,7 @@ test("admin list with pagination and role update", async ({ page }) => {
     localStorage.setItem("refreshToken", "ref");
   });
 
-  await page.route("**/me", async (route) => {
+  await page.route("**/api/me", async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -19,7 +19,7 @@ test("admin list with pagination and role update", async ({ page }) => {
     });
   });
 
-  await page.route("**/admin/users**", async (route) => {
+  await page.route("**/api/admin/users**", async (route) => {
     if (route.request().method() === "GET") {
       await route.fulfill({
         status: 200,
@@ -41,9 +41,9 @@ test("admin list with pagination and role update", async ({ page }) => {
   });
 
   await page.goto("/admin/users");
-  await expect(page.getByText("Admin: Users")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Пользователи FinPulse" })).toBeVisible();
   await expect(page.getByText("u1@example.com")).toBeVisible();
 
-  await page.getByDisplayValue("user").selectOption("pro");
+  await page.locator("tbody tr", { hasText: "u1@example.com" }).locator("select").selectOption("pro");
   await expect(page.getByText("u2@example.com")).toBeVisible();
 });
