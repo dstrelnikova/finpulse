@@ -8,7 +8,7 @@ FinPulse агрегирует данные российского финансо
 
 ## 2. Назначение
 
-Система предназначена для учебного информационного анализа. Она не выполняет торговых операций и не заменяет профессиональную инвестиционную консультацию.
+Система предназначена для информационного анализа. Она не выполняет торговых операций и не заменяет профессиональную инвестиционную консультацию.
 
 ## 3. Цели
 
@@ -72,7 +72,7 @@ Pydantic/FastAPI возвращает 422 для schema validation; auth — 401
 
 ## 15. Ограничения
 
-Качество зависит от полноты источника и модели; нет migration framework, distributed rate limit, deployment pipeline и гарантированного SLA; локальный mobile-каталог не поставляется Git. Полный GAP-list: [requirements.md](requirements.md#11-ограничения-и-gap).
+Качество зависит от полноты источника и модели; нет migration framework, distributed rate limit, deployment pipeline и гарантированного SLA. Полный GAP-list: [requirements.md](requirements.md#11-ограничения-и-gap).
 
 ## 16. Acceptance Criteria
 
@@ -80,4 +80,4 @@ Pydantic/FastAPI возвращает 422 для schema validation; auth — 401
 
 ## 17. Связанные документы
 
-[Requirements](requirements.md) · [Use Cases](use-cases.md) · [Architecture](architecture.md) · [API](api.md) · [Data Model](data-model.md) · [CI/CD](ci-cd.md) · [AppSec Context](appsec-context.md)
+[Requirements](requirements.md) · [Use Cases](use-cases.md) · [Architecture](architecture.md) · [API](api.md) · [Data Model](data-model.md) · [CI/CD](ci-cd.md)

@@ -2,8 +2,6 @@
 
 Статусы тестов и фактические результаты: [test-cases.md](test-cases.md).
 
-Назначение матрицы, правила чтения и обновления: [памятка системного аналитика](analysis-guide.md#7-матрица-трассируемости).
-
 | Requirement | Use Case | Acceptance Criteria | Test Cases |
 |---|---|---|---|
 | FR-01 | UC-01 | AC-01 | TC-01 |

@@ -34,7 +34,7 @@ flowchart LR
 | Scheduler | Фоновое периодическое обновление публичной ленты в процессе backend |
 | Docker Compose | `frontend`, `backend`, `db`, `ollama`, одноразовый `ollama-init`; volumes `pgdata`, `ollama` |
 
-Tauri оборачивает тот же frontend. Локальный каталог `mobile/` существует в workspace, но полностью исключён `.gitignore` и потому не входит в поставляемую архитектуру Git-репозитория.
+Tauri оборачивает тот же frontend и не создаёт отдельный backend-контур.
 
 ## Где выполняется логика и работа с данными
 
@@ -107,4 +107,4 @@ Development override публикует frontend на `3000` и backend на `80
 
 ## Связанные документы
 
-[API](api.md) · [Модель данных](data-model.md) · [CI/CD](ci-cd.md) · [AppSec](appsec-context.md)
+[API](api.md) · [Модель данных](data-model.md) · [CI/CD](ci-cd.md)

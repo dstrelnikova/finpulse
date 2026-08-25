@@ -55,23 +55,8 @@ Production secrets в workflow отсутствуют. Если будущие �
 
 ## 7. Результат pipeline
 
-Результат — статусы backend/frontend jobs и логи каждого шага. Артефакт deployment не создаётся. GitHub Actions run `32839010217` для commit `28e6c0d` успешно завершён 25 августа 2026 года; новые изменения должны проходить тот же workflow.
+Результат — статусы backend/frontend jobs и логи каждого шага. Артефакт deployment не создаётся. Реальный запуск workflow в ветке `main` подтверждён; актуальный статус отображается на вкладке Actions в GitHub.
 
 ## 8. Возможное развитие
 
-Возможный следующий шаг — запускать Playwright в CI, если проекту понадобится автоматическая браузерная проверка. Автоматический deployment текущему учебному MVP не нужен. Это TARGET/TODO, не AS-IS.
-
-## Образовательный security-flow
-
-```mermaid
-flowchart LR
-    A[Commit или Pull Request] --> B[Build]
-    B --> C[Tests]
-    C --> D[SAST]
-    D --> E[SCA]
-    E --> Q{Quality Gate}
-    Q -->|pass| N[Следующий этап]
-    Q -->|fail| X[Исправление]
-```
-
-SAST/SCA и Solar appScreener **не интегрированы** в текущий FinPulse. Схема показывает только место будущих AppSec-проверок. Контекст: [appsec-context.md](appsec-context.md).
+Возможный следующий шаг — запускать Playwright в CI, если проекту понадобится автоматическая браузерная проверка. Автоматический deployment текущему MVP не нужен. Это TARGET/TODO, не AS-IS.
