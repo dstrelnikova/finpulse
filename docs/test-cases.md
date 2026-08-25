@@ -2,6 +2,8 @@
 
 Дата прогона: **2026-08-24**. Среда: macOS + Docker Desktop. Backend, frontend и Compose-сценарии реально выполнены. PASS ставится только автоматизированной, статической или явно указанной live-проверке.
 
+Шаблон Test Case, типы проверок и значения статусов: [памятка системного аналитика](analysis-guide.md#6-тест-кейс).
+
 ## TC-01 — Получение публичной ленты (positive, integration)
 
 **Related requirement:** FR-01
@@ -64,11 +66,11 @@
 
 ## TC-07 — Граница длины chat message (boundary, API)
 
-**Related requirement:** FR-09, FR-10, FR-11, NFR-02
+**Related requirement:** FR-09, NFR-02
 **Related acceptance criterion:** AC-10, AC-11
 **Preconditions:** Валидный JWT/permission.
 **Steps:** 1. Отправить `""`. 2. Отправить 4000 символов. 3. Отправить 4001 символ.
-**Expected result:** 422, успешная передача и сохранение 4000 символов при доступном Ollama, 422.
+**Expected result:** 422, успешная передача 4000 символов при доступном обработчике, 422.
 **Actual result:** PASS: integration tests отклонили 0/4001 символ и приняли 4000 символов; live API также вернул 422 для пустого и 4001-символьного ввода.
 **Status:** PASS
 
@@ -152,6 +154,16 @@
 **Actual result:** PASS в полном backend suite; соответствующие ветви покрываются `test_personal_news_rss.py` и unit tests аналитики.
 **Status:** PASS
 
+## TC-16 — Сохранение обмена и чтение истории (integration)
+
+**Related requirement:** FR-10, FR-11
+**Related acceptance criterion:** AC-10
+**Preconditions:** Валидный JWT/permissions; доступные chat repositories и успешный ответ модели.
+**Steps:** 1. Отправить корректное сообщение. 2. Вызвать `GET /chat/history`. 3. Проверить принадлежность и порядок user/FinPulse сообщений.
+**Expected result:** В default chat текущего пользователя сохранены вопрос и ответ; история не содержит сообщений другого пользователя.
+**Actual result:** Автоматизированного integration test, подтверждающего всю цепочку сохранения, чтения и изоляции истории, в текущем наборе нет.
+**Status:** NOT RUN
+
 ## Итог
 
-PASS: 15; FAIL: 0; BLOCKED: 0. Backend: 68 tests passed. Frontend: 9 Vitest tests и 3 Playwright E2E tests passed. Live Compose: регистрация/вход, профиль, Ollama-чат, история, публичные endpoints, PostgreSQL и reverse proxy проверены. Внешние RSS в момент проверки отвечали с timeout, поэтому публичная лента корректно вернула пустой массив через предусмотренную деградацию.
+PASS: 15; FAIL: 0; BLOCKED: 0; NOT RUN: 1. Backend: 68 tests passed. Frontend: 9 Vitest tests и 3 Playwright E2E tests passed. Live Compose: регистрация/вход, профиль, Ollama-чат, история, публичные endpoints, PostgreSQL и reverse proxy проверены. Полная автоматизированная проверка сохранения и изоляции истории ещё не добавлена. Внешние RSS в момент проверки отвечали с timeout, поэтому публичная лента корректно вернула пустой массив через предусмотренную деградацию.

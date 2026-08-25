@@ -147,6 +147,7 @@ npm run test:e2e
 
 ## Документация
 
+- [Памятка аналитика](docs/analysis-guide.md) — основные термины и шаблоны
 - [Requirements](docs/requirements.md)
 - [Use Cases](docs/use-cases.md)
 - [Architecture](docs/architecture.md)
