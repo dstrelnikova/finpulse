@@ -17,8 +17,8 @@ Workflow имеет только permission `contents: read` и не измен�
 
 | Job | Runtime | Результат |
 |---|---|---|
-| `backend` | Python 3.11 | compile check и 68 pytest tests из текущего набора |
-| `frontend` | Node.js 20 | TypeScript, 9 Vitest unit/integration tests и production Vite build |
+| `backend` | Python 3.11 | проверка зависимостей, compile check и 69 pytest tests из текущего набора |
+| `frontend` | Node.js 20 | npm audit для high/critical, TypeScript, 9 Vitest tests и production Vite build |
 
 Число тестов приведено по локальному прогону и может меняться.
 
@@ -31,9 +31,11 @@ flowchart LR
     CI --> B[Backend job]
     CI --> F[Frontend job]
     B --> BI[pip install]
-    BI --> BT[compileall и pytest]
+    BI --> BC[pip check]
+    BC --> BT[compileall и pytest]
     F --> FI[npm ci]
-    FI --> FT[typecheck и Vitest]
+    FI --> FA[npm audit high]
+    FA --> FT[typecheck и Vitest]
     FT --> FB[Vite build]
     BT --> R{Result}
     FB --> R
@@ -53,11 +55,11 @@ Production secrets в workflow отсутствуют. Если будущие �
 
 ## 7. Результат pipeline
 
-Результат — статусы backend/frontend jobs и логи каждого шага. Артефакт deployment не создаётся. Реальный GitHub run на момент аудита ещё не подтверждён; локально команды workflow и Docker build выполнены успешно.
+Результат — статусы backend/frontend jobs и логи каждого шага. Артефакт deployment не создаётся. GitHub Actions run `32839010217` для commit `28e6c0d` успешно завершён 25 августа 2026 года; новые изменения должны проходить тот же workflow.
 
 ## 8. Возможное развитие
 
-Ближайшие понятные шаги: добавить проверку зависимостей и позже запускать Playwright в CI. Автоматический deployment не нужен для текущего учебного MVP. Это TARGET/TODO, не AS-IS.
+Возможный следующий шаг — запускать Playwright в CI, если проекту понадобится автоматическая браузерная проверка. Автоматический deployment текущему учебному MVP не нужен. Это TARGET/TODO, не AS-IS.
 
 ## Образовательный security-flow
 

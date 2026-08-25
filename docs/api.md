@@ -52,13 +52,13 @@ Login body содержит email и password; ответ 200:
 
 ### Публичные новости — `GET /public/news`
 
-Query: `limit` default 50, эффективный диапазон 1–100; `force` boolean default false. Значение вне диапазона AS-IS не даёт 422, а приводится к ближайшей границе. Ответ 200 — массив:
+Query: `limit` default 50, эффективный диапазон 1–100. Значение вне диапазона AS-IS не даёт 422, а приводится к ближайшей границе. Ответ 200 — массив:
 
 ```json
 [{"id":1,"slug":"...","title":"...","source":"...","url":"https://...","summary":"...","bullets":["..."],"conclusion":"...","risks":["..."],"indicator":{"impact":"neutral","confidence":"medium","rationale":["..."]},"asof":"2026-08-24"}]
 ```
 
-Холодный старт/`force=true` может быть медленным из-за внешних источников. Пустой результат — HTTP 200 `[]`. `GET /public/news/{int}` и `/slug/{str}` возвращают `NewsBlockOut` либо 404.
+Холодный старт может быть медленным из-за внешних источников. Пустой результат — HTTP 200 `[]`. Принудительное обновление не выставлено в публичный API: его запускает внутренний scheduler. `GET /public/news/{int}` и `/slug/{str}` возвращают `NewsBlockOut` либо 404.
 
 ### Котировки — `GET /public/moex/imoex/quotes`
 

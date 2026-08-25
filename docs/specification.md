@@ -1,10 +1,10 @@
 # Техническое задание / Software Specification
 
-Версия: 1.0 · Статус: описание работающего MVP и целевого quality gate · Язык: русский
+Версия: 1.0 · Статус: описание работающего MVP · Язык: русский
 
 ## 1. Контекст
 
-FinPulse агрегирует данные российского финансового рынка и приводит новости к структурированному виду. Документ отделяет фактическую реализацию (**AS-IS**) от целевого требования CI (**TARGET**) и известных расхождений (**GAP**).
+FinPulse агрегирует данные российского финансового рынка и приводит новости к структурированному виду. Документ отделяет фактическую реализацию (**AS-IS**) от возможного развития (**TARGET**) и известных расхождений (**GAP**).
 
 ## 2. Назначение
 
@@ -32,7 +32,7 @@ FinPulse агрегирует данные российского финансо
 
 ## 8. Нефункциональные требования
 
-NFR-01…NFR-06 определяют externalized configuration, предсказуемую валидацию, graceful degradation, целостность данных, CI quality gate и health/readiness. См. [requirements.md](requirements.md#9-нефункциональные-требования).
+NFR-01…NFR-06 определяют externalized configuration, предсказуемую валидацию, graceful degradation, целостность данных, CI-проверки и health/readiness. См. [requirements.md](requirements.md#9-нефункциональные-требования).
 
 ## 9. Системные правила
 
@@ -76,7 +76,7 @@ Pydantic/FastAPI возвращает 422 для schema validation; auth — 401
 
 ## 16. Acceptance Criteria
 
-Критерии AC-01…AC-13: [acceptance-criteria.md](acceptance-criteria.md). Результаты прогона TC-01…TC-15: [test-cases.md](test-cases.md). Связность контролирует [traceability matrix](traceability-matrix.md).
+Критерии AC-01…AC-13: [acceptance-criteria.md](acceptance-criteria.md). Результаты прогона TC-01…TC-16: [test-cases.md](test-cases.md). Связность контролирует [traceability matrix](traceability-matrix.md).
 
 ## 17. Связанные документы
 

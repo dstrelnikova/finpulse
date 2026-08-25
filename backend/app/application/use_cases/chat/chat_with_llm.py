@@ -103,7 +103,7 @@ class ChatWithLLM:
                 chat_id=chat_id,
                 role="user",
                 content=user_message,
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
             ),
             chat_id=chat_id,
         )
@@ -132,7 +132,7 @@ class ChatWithLLM:
                 chat_id=chat_id,
                 role="FinPulse",
                 content=response_text,
-                timestamp=datetime.datetime.utcnow(),
+                timestamp=datetime.datetime.now(datetime.timezone.utc),
             ),
             chat_id=chat_id,
         )

@@ -37,6 +37,7 @@ OWASP Top 10 — ориентир по распространённым клас
 - SQLAlchemy ORM параметризует обычные запросы;
 - CORS ограничен известными origins/methods/headers;
 - `.env` исключён из Git, production credentials не обнаружены среди tracked files;
+- в GitHub включены secret scanning и push protection; на момент проверки открытых secret alerts нет;
 - refresh JWT ротируется и отзывается logout;
 - auth имеет простой in-memory rate limit;
 - контейнер backend запускается непривилегированным `appuser`.
@@ -55,6 +56,6 @@ Requirements / threat model
 → release and vulnerability monitoring
 ```
 
-Для junior-проекта это обзор терминов, а не заявление о внедрённой DevSecOps-платформе. Ближайшие практические шаги: хешировать refresh tokens, добавить миграции, secret scan и SCA. `npm audit fix` без breaking changes уменьшил результат с 10 до 2 moderate уязвимостей; оставшиеся относятся к React Router и требуют отдельно проверяемого обновления до major version 7. Более сложные меры можно рассматривать позже. Solar appScreener в проект не установлен и не настроен.
+Для junior-проекта это обзор терминов, а не заявление о внедрённой DevSecOps-платформе. AS-IS frontend CI запускает `npm audit` с порогом high, backend — `pip check`; GitHub дополнительно выполняет secret scanning и push protection. Две moderate-уязвимости frontend относятся к React Router и требуют отдельно проверяемого обновления до major version 7. Миграции, полноценный SAST/SCA и хеширование refresh tokens можно рассматривать после MVP. Solar appScreener в проект не установлен и не настроен.
 
 Связанные документы: [CI/CD](ci-cd.md), [требования](requirements.md), [архитектура](architecture.md).

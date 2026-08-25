@@ -19,11 +19,10 @@ router = APIRouter(prefix="/public/news", tags=["Public News"])
 @router.get("", response_model=List[NewsBlockOut])
 def get_public_news_feed(
     limit: int = 50,
-    force: bool = False,
     use_case: GetPublicNewsFeed = Depends(get_public_news_feed_use_case),
 ):
     limit = max(1, min(limit, 100))
-    return use_case.execute(limit=limit, force=force)
+    return use_case.execute(limit=limit)
 
 
 @router.get("/slug/{slug}", response_model=NewsBlockOut)

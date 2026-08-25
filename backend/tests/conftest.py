@@ -24,9 +24,11 @@ os.environ.setdefault("OLLAMA_MODEL", "stub")
 os.environ.setdefault("ADMIN_EMAIL", "admin@example.com")
 
 from app.core.constants import MARKET_RU  # noqa: E402
+from app.domain.entities.chat_message import ChatMessage  # noqa: E402
 from app.domain.entities.news_block import NewsBlock, NewsIndicator  # noqa: E402
 from app.domain.entities.user import User  # noqa: E402
 from app.infrastructure.dependencies import (  # noqa: E402
+    get_chat_repo,
     get_chat_session_repo,
     get_moex_service,
     get_public_news_feed_use_case,
@@ -217,6 +219,36 @@ class InMemoryChatSessionRepo:
         return c
 
 
+class InMemoryChatMessageRepo:
+    def __init__(self) -> None:
+        self._id_seq = 0
+        self._messages: list[ChatMessage] = []
+
+    def add_message(self, message: ChatMessage, chat_id: int | None = None) -> ChatMessage:
+        self._id_seq += 1
+        message.id = self._id_seq
+        message.chat_id = chat_id or message.chat_id
+        self._messages.append(message)
+        return message
+
+    def get_last_messages(self, user_id: int, limit: int = 20, chat_id: int | None = None):
+        rows = [
+            message
+            for message in self._messages
+            if message.user_id == user_id and (chat_id is None or message.chat_id == chat_id)
+        ]
+        return rows[-limit:]
+
+    def clear_messages(self, user_id: int, chat_id: int | None = None) -> int:
+        before = len(self._messages)
+        self._messages = [
+            message
+            for message in self._messages
+            if not (message.user_id == user_id and (chat_id is None or message.chat_id == chat_id))
+        ]
+        return before - len(self._messages)
+
+
 class FakePublicNewsFeedUseCase:
     def execute(self, limit: int = 50, force: bool = False):
         del force
@@ -323,12 +355,17 @@ def fake_chat_repo(fake_user_repo: InMemoryUserRepo) -> InMemoryChatSessionRepo:
 
 
 @pytest.fixture
+def fake_chat_message_repo() -> InMemoryChatMessageRepo:
+    return InMemoryChatMessageRepo()
+
+
+@pytest.fixture
 def fake_moex_service() -> FakeMoexService:
     return FakeMoexService()
 
 
 @pytest.fixture
-def test_app(fake_user_repo, fake_chat_repo, fake_moex_service) -> FastAPI:
+def test_app(fake_user_repo, fake_chat_repo, fake_chat_message_repo, fake_moex_service) -> FastAPI:
     app = FastAPI(title="FinPulse Test API")
     app.include_router(auth_router)
     app.include_router(chat_router)
@@ -340,6 +377,7 @@ def test_app(fake_user_repo, fake_chat_repo, fake_moex_service) -> FastAPI:
 
     app.dependency_overrides[get_user_repo] = lambda: fake_user_repo
     app.dependency_overrides[get_chat_session_repo] = lambda: fake_chat_repo
+    app.dependency_overrides[get_chat_repo] = lambda: fake_chat_message_repo
     app.dependency_overrides[get_moex_service] = lambda: fake_moex_service
     app.dependency_overrides[get_public_news_feed_use_case] = lambda: FakePublicNewsFeedUseCase()
     app.dependency_overrides[get_public_news_item_use_case] = lambda: FakePublicNewsItemUseCase()

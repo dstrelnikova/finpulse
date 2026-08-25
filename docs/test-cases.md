@@ -161,9 +161,9 @@
 **Preconditions:** Валидный JWT/permissions; доступные chat repositories и успешный ответ модели.
 **Steps:** 1. Отправить корректное сообщение. 2. Вызвать `GET /chat/history`. 3. Проверить принадлежность и порядок user/FinPulse сообщений.
 **Expected result:** В default chat текущего пользователя сохранены вопрос и ответ; история не содержит сообщений другого пользователя.
-**Actual result:** Автоматизированного integration test, подтверждающего всю цепочку сохранения, чтения и изоляции истории, в текущем наборе нет.
-**Status:** NOT RUN
+**Actual result:** PASS: integration test отправляет сообщение через `ChatWithLLM`, читает историю и отдельно подтверждает пустую историю другого пользователя.
+**Status:** PASS
 
 ## Итог
 
-PASS: 15; FAIL: 0; BLOCKED: 0; NOT RUN: 1. Backend: 68 tests passed. Frontend: 9 Vitest tests и 3 Playwright E2E tests passed. Live Compose: регистрация/вход, профиль, Ollama-чат, история, публичные endpoints, PostgreSQL и reverse proxy проверены. Полная автоматизированная проверка сохранения и изоляции истории ещё не добавлена. Внешние RSS в момент проверки отвечали с timeout, поэтому публичная лента корректно вернула пустой массив через предусмотренную деградацию.
+PASS: 16; FAIL: 0; BLOCKED: 0; NOT RUN: 0. Backend: 69 tests passed. Frontend: 9 Vitest tests и 3 Playwright E2E tests passed. Live Compose: регистрация/вход, профиль, Ollama-чат, история, публичные endpoints, PostgreSQL и reverse proxy проверены. Внешние RSS в момент live-проверки отвечали с timeout, поэтому публичная лента корректно вернула пустой массив через предусмотренную деградацию.
