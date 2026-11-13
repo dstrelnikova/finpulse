@@ -79,7 +79,7 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
-Before the first start, replace `POSTGRES_PASSWORD` and `SECRET_KEY` in `.env` with unique local values. The example file deliberately contains placeholders only and must not be used as a production configuration.
+Перед первым запуском замените `POSTGRES_PASSWORD` и `SECRET_KEY` в `.env` уникальными локальными значениями. Пример намеренно содержит только placeholders и не является production-конфигурацией.
 
 При первом запуске Ollama загружает модель из переменной `OLLAMA_MODEL`, поэтому старт может занять несколько минут.
 
@@ -161,6 +161,7 @@ npm run test:e2e
 - [AI Engineering Case](docs/AI_ENGINEERING_CASE.md)
 - [Interview Preparation](docs/INTERVIEW_PREPARATION.md)
 - [Portfolio Readiness Report](docs/PORTFOLIO_READINESS_REPORT.md)
+- [Demo Script](docs/DEMO_SCRIPT.md)
 
 Документы разделяют фактическое состояние **AS-IS**, целевое поведение **TARGET** и известные расхождения **GAP**. Связь требований с критериями и проверками показана в матрице трассируемости.
 

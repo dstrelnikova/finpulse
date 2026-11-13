@@ -137,9 +137,9 @@
 **Related requirement:** NFR-05
 **Related acceptance criterion:** —
 **Preconditions:** `.github/workflows/ci.yml` существует.
-**Steps:** 1. Проверить triggers. 2. Проверить backend/frontend jobs. 3. Убедиться, что secrets не захардкожены.
-**Expected result:** push/PR запускают tests/typecheck/build; production secrets отсутствуют.
-**Actual result:** Структура и команды проверены статически; локально выполнены те же backend/frontend команды. Реальный GitHub Actions run ещё не выполнялся.
+**Steps:** 1. Проверить triggers. 2. Проверить backend/frontend/e2e jobs. 3. Убедиться, что secrets не захардкожены. 4. Проверить lint и dependency audit commands.
+**Expected result:** push/PR запускают backend lint/tests/audit, frontend typecheck/tests/build и Playwright e2e; production secrets отсутствуют.
+**Actual result:** YAML валиден; локально выполнены backend lint/tests, frontend typecheck/tests/build, `npm audit` и Playwright e2e в изолированном Chromium container. Реальный GitHub Actions run ещё не выполнялся.
 **Status:** PASS
 
 ## TC-15 — Персональная лента без GigaChat (integration/unit)

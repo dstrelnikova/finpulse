@@ -71,7 +71,7 @@ FinPulse — информационный веб-сервис для просм�
 | NFR-02 | AS-IS | Невалидные тела и объявленные query-параметры FastAPI должны отклоняться HTTP 422 до выполнения бизнес-логики. |
 | NFR-03 | AS-IS | Недоступность RSS, GigaChat или MOEX не должна приводить к необработанному HTTP 500 в публичной ленте/котировках; используются пропуск источника, rules fallback или fallback-ответ. |
 | NFR-04 | AS-IS | PostgreSQL должен обеспечивать уникальность `users.email`, `news.url`, комбинаций кэша и RBAC, а также каскадное удаление зависимых chat/RBAC-записей. |
-| NFR-05 | AS-IS | Каждый push в `main` и каждый pull request должны запускать backend tests, frontend typecheck/tests и frontend build в GitHub Actions. |
+| NFR-05 | AS-IS | Каждый push в `main` и каждый pull request должны запускать backend lint/tests/dependency audit, frontend typecheck/tests/build и изолированные Playwright e2e-сценарии в GitHub Actions. |
 | NFR-06 | AS-IS | `/healthz` должен отвечать HTTP 200 без обращения к БД, а `/readyz` — HTTP 200 только при успешном `SELECT 1`, иначе HTTP 503. |
 
 ## 10. Системные правила
