@@ -11,6 +11,7 @@ _Статус: локальная ветка `chore/portfolio-readiness`; это
 | Playwright job в CI | Проверять browser-сценарии в чистой среде. |
 | Обновлены `axios` и `vite` в пределах текущих major versions | Устранить подтверждённые high-severity frontend advisories. |
 | Расширен `frontend/.dockerignore` для Tauri build artifacts | Не передавать в Docker build context гигабайтные локальные артефакты. |
+| Добавлены browser security headers на Nginx | Ограничить clickjacking, MIME sniffing, ненужные browser permissions и embedding. |
 | Портфолио и interview docs | Сделать решения и ограничения проверяемыми. |
 
 ## B. Результаты тестирования
