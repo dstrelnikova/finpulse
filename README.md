@@ -79,6 +79,8 @@ cp .env.example .env
 docker compose up -d --build
 ```
 
+Before the first start, replace `POSTGRES_PASSWORD` and `SECRET_KEY` in `.env` with unique local values. The example file deliberately contains placeholders only and must not be used as a production configuration.
+
 При первом запуске Ollama загружает модель из переменной `OLLAMA_MODEL`, поэтому старт может занять несколько минут.
 
 После запуска доступны:
@@ -156,12 +158,15 @@ npm run test:e2e
 - [Test Cases](docs/test-cases.md)
 - [Traceability Matrix](docs/traceability-matrix.md)
 - [CI/CD](docs/ci-cd.md)
+- [AI Engineering Case](docs/AI_ENGINEERING_CASE.md)
+- [Interview Preparation](docs/INTERVIEW_PREPARATION.md)
+- [Portfolio Readiness Report](docs/PORTFOLIO_READINESS_REPORT.md)
 
 Документы разделяют фактическое состояние **AS-IS**, целевое поведение **TARGET** и известные расхождения **GAP**. Связь требований с критериями и проверками показана в матрице трассируемости.
 
 ## CI
 
-Workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) запускается для pull request и push в `main`. Независимые jobs проверяют backend (`pip check`, `compileall`, `pytest`) и frontend (`npm audit`, TypeScript, Vitest, production build). Production-секреты pipeline не требуются; автоматический deployment не настроен.
+Workflow [`.github/workflows/ci.yml`](.github/workflows/ci.yml) запускается для pull request и push в `main`. Независимые jobs проверяют backend (`pip check`, `compileall`, flake8, pytest, `pip-audit`), frontend (`npm audit`, TypeScript, Vitest, production build) и изолированные Playwright e2e-сценарии. Production-секреты pipeline не требуются; автоматический deployment не настроен.
 
 ## Дополнительный вариант запуска
 
@@ -180,6 +185,7 @@ docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
 - rules-based fallback проще LLM-анализа и предназначен для устойчивой деградации сервиса;
 - список бумаг для экрана MOEX ограничен выборкой ликвидных тикеров MVP;
 - ответы AI требуют проверки и не должны использоваться как единственное основание для инвестиционных решений;
+- access и refresh JWT хранятся в `localStorage`; для публичного production-контура следует отдельно оценить переход на HttpOnly cookies, CSP и XSS-hardening;
 - схема БД создаётся через SQLAlchemy `create_all`; версионированные миграции пока отсутствуют;
 - следующие шаги: миграции, расширение покрытия API-тестами и развитие источников и уведомлений.
 
