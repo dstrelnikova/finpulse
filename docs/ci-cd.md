@@ -13,12 +13,13 @@ Workflow имеет только permission `contents: read` и не измен�
 
 ## 3. Jobs
 
-Два независимых job выполняются параллельно:
+Три независимых job выполняются параллельно:
 
 | Job | Runtime | Результат |
 |---|---|---|
-| `backend` | Python 3.11 | проверка зависимостей, compile check и 69 pytest tests из текущего набора |
-| `frontend` | Node.js 20 | npm audit для high/critical, TypeScript, 9 Vitest tests и production Vite build |
+| `backend` | Python 3.11 | `pip check`, `compileall`, flake8, pytest и `pip-audit` зависимостей |
+| `frontend` | Node.js 20 | npm audit для high/critical, TypeScript, Vitest и production Vite build |
+| `e2e` | Node.js 20 + Chromium | изолированные Playwright-сценарии пользовательских потоков |
 
 Число тестов приведено по локальному прогону и может меняться.
 
@@ -30,6 +31,7 @@ flowchart LR
     PR[Pull Request] --> CI
     CI --> B[Backend job]
     CI --> F[Frontend job]
+    CI --> E[e2e job]
     B --> BI[pip install]
     BI --> BC[pip check]
     BC --> BT[compileall и pytest]
@@ -37,8 +39,10 @@ flowchart LR
     FI --> FA[npm audit high]
     FA --> FT[typecheck и Vitest]
     FT --> FB[Vite build]
+    E --> EP[Playwright Chromium]
     BT --> R{Result}
     FB --> R
+    EP --> R
 ```
 
 Dependency cache использует `requirements.txt` и `package-lock.json`. `npm ci` обеспечивает соответствие lock-файлу.
@@ -51,12 +55,12 @@ Dependency cache использует `requirements.txt` и `package-lock.json`.
 
 Backend tests используют только явно тестовые значения в `env` workflow. PostgreSQL service не поднимается: integration tests заменяют repositories dependency overrides. GigaChat/Ollama не вызываются реальной сетью.
 
-Production secrets в workflow отсутствуют. Если будущие отдельные integration tests потребуют GigaChat, ключ следует передавать как `${{ secrets.GIGACHAT_AUTH_KEY }}` и запускать такие проверки осознанно; текущему CI он не нужен.
+Production secrets в workflow отсутствуют. Playwright подменяет ответы API через `page.route`, поэтому сценарии не требуют реальной базы, GigaChat или Ollama. Если будущие отдельные integration tests потребуют GigaChat, ключ следует передавать как `${{ secrets.GIGACHAT_AUTH_KEY }}` и запускать такие проверки осознанно; текущему CI он не нужен.
 
 ## 7. Результат pipeline
 
-Результат — статусы backend/frontend jobs и логи каждого шага. Артефакт deployment не создаётся. Реальный запуск workflow в ветке `main` подтверждён; актуальный статус отображается на вкладке Actions в GitHub.
+Результат — статусы backend/frontend/e2e jobs и логи каждого шага. Артефакт deployment не создаётся. YAML подготовлен для GitHub Actions; успешное выполнение на GitHub нужно подтверждать статусом конкретного workflow run.
 
 ## 8. Возможное развитие
 
-Возможный следующий шаг — запускать Playwright в CI, если проекту понадобится автоматическая браузерная проверка. Автоматический deployment текущему MVP не нужен. Это TARGET/TODO, не AS-IS.
+Автоматический deployment текущему MVP не нужен. Следующий практический шаг — включить required checks в branch protection после первого успешного workflow run.
