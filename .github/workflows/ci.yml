@@ -78,7 +78,9 @@ jobs:
 
   e2e:
     name: Browser acceptance checks
-    runs-on: ubuntu-latest
+    # Playwright 1.58 does not yet support the ubuntu-26.04 image used by
+    # ubuntu-latest, so keep the browser test environment on a supported LTS.
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: frontend
