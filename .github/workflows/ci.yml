@@ -21,7 +21,7 @@ jobs:
       POSTGRES_DB: test
       POSTGRES_HOST: localhost
       POSTGRES_PORT: "5432"
-      SECRET_KEY: ci-only-not-a-production-secret
+      SECRET_KEY: ci-only-not-a-production-secret-with-32-plus-chars
       ALGORITHM: HS256
       ACCESS_EXPIRE_MINUTES: "15"
       REFRESH_EXPIRE_DAYS: "7"

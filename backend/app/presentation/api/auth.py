@@ -2,7 +2,8 @@ from datetime import UTC, datetime
 import time
 
 from fastapi import APIRouter, Depends, HTTPException, Request, status
-from jose import JWTError, jwt
+import jwt
+from jwt import InvalidTokenError
 
 from app.application.interfaces.user import IUserRepository
 from app.application.use_cases.auth.login import Login
@@ -111,7 +112,7 @@ def refresh_tokens(
             settings.SECRET_KEY,
             algorithms=[settings.ALGORITHM],
         )
-    except JWTError:
+    except InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid refresh token")
 
     if payload.get("type") != "refresh":

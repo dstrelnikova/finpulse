@@ -4,7 +4,8 @@ from uuid import uuid4
 
 from fastapi import Depends, HTTPException
 from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
-from jose import JWTError, jwt
+import jwt
+from jwt import InvalidTokenError
 
 from app.application.interfaces.user import IUserRepository
 from app.core.settings import settings
@@ -43,7 +44,7 @@ def create_refresh_token(user_id: int, email: str):
 def decode_token(token: str):
     try:
         return jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
-    except JWTError:
+    except InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
 
